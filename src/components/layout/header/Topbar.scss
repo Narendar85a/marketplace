@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+.topbar {
+  @apply m-0 fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 h-20 shadow-sm;
+}
+
+.topbar-right {
+  @apply flex items-center gap-8; 
+}
+
+.topbar-link {
+  @apply flex items-center gap-1 text-lg cursor-pointer border-b-2 border-transparent
+         text-gray-400 dark:text-gray-400
+         transition-all duration-200
+         bg-transparent hover:bg-transparent;
+
+  &:hover {
+    color: #00A67E;
+  }
+}
+
+.topbar-link.active {
+  @apply border-[#00A67E];
+  color: #00A67E;
+}
+
+.topbar-log {
+  @apply text-lg cursor-pointer ;
+}

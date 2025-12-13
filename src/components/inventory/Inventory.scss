@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+.inventory {
+    @apply flex flex-col gap-8 p-4;
+}
+
+.inventory-typo {
+    @apply pl-10 text-lg font-bold;
+  color: #00A67E ;
+}

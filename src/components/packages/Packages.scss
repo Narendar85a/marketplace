@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+.packages {
+    @apply flex flex-col p-4 gap-8;
+}
+
+.packages-typo {
+    @apply pl-10 text-lg font-bold;
+
+   color: #00A67E ;
+}

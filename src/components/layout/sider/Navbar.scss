@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+.navbar-menu {
+  @apply bg-transparent h-full pt-4 font-semibold ;
+}
+
+.navbar-menu .ant-menu-item {
+  @apply bg-transparent rounded-none px-4 py-2;
+  color: var(--text-primary);
+}
+
+
+.navbar-menu .ant-menu-item-selected a {
+  color: #00A67E !important; 
+}
+
+
+.navbar-menu .ant-menu-item-selected .ant-menu-item-icon {
+  color: #00A67E;
+}

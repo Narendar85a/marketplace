@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --bg-header: #ffffff;
+  --bg-sider: #ffffff;
+  --bg-content: #f5f5f5;
+  --text-primary: #111827;
+  --border-default: #e5e7eb;
+}
+
+html.dark {
+  --bg-header: #1f1f1f;
+  --bg-sider: #1f1f1f;
+  --bg-content: #141414;
+  --text-primary: #e6e6e6;
+  --border-default: #2b2b2b;
+}
+
+.header {
+  @apply fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 h-20 shadow-sm;
+  background-color: var(--bg-header) !important; 
+  color: var(--text-primary); 
+  border-bottom: 1px solid var(--border-default);
+}
+.ant-layout-header.header { 
+  background-color: var(--bg-header) !important; 
+}
+
+.header .header-title, .header .ant-typography {
+   color: #00A67E ; 
+  }
+
+.sider {
+  @apply fixed left-0 top-20 bottom-0 w-64 shadow-sm;
+  background-color: var(--bg-sider) !important;
+  color: var(--text-primary);
+}
+
+.ant-layout-content,
+.content {
+  @apply min-h-screen p-6;
+  height: calc(100vh - 5rem); 
+  overflow-y: auto; 
+  padding-top: calc(80px + 1rem);    
+  padding-left: calc(220px + 1rem);  
+  background-color: var(--bg-content) !important;
+  color: var(--text-primary);
+}
+
+.header .ant-switch, 
+.header .ant-btn { 
+  color: var(--text-primary) !important; 
+}
+
