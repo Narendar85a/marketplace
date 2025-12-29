@@ -1,22 +1,18 @@
 "use client";
 
 import { Table, Typography, Input, Button } from "antd";
-import { getOrderColumns } from "@/ui/tableColumn/OrdersTable";
-import { ordersData } from "@/utils/ordersData";
+import { getTripColumns } from "@/ui/tableColumn/TripColumn";
+import { tripsData } from "@/utils/tripData";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import "./Orders.scss";
-import Delivery from "../delivery/Delivery";
-import Trade from "../trade/Trade";
-import Trip from "../trip/Trip";
 
-export default function Orders() {
+export default function Trip() {
   const router = useRouter();
   const [search, setSearch] = useState("");
 
-  const filteredData = ordersData.filter((order) =>
-    order.orderId.toLowerCase().includes(search.toLowerCase())
+  const filteredData = tripsData.filter((item) =>
+    item.tripId.toLowerCase().includes(search.toLowerCase())
   );
 
    const handleView = (id: string) =>
@@ -25,7 +21,7 @@ export default function Orders() {
   return (
     <div className="orders">
       <div className="orders-div1">
-        <Typography className="orders-typo">Orders Table</Typography>
+        <Typography className="orders-typo">Delivery Table</Typography>
         <div className="orders-div2">
           <Input placeholder="Search..." prefix={<SearchOutlined />} value={search} onChange={e => setSearch(e.target.value)} />
           <Button type="primary" icon={<PlusOutlined />}>
@@ -35,17 +31,11 @@ export default function Orders() {
       </div>
 
       <Table
-        columns={getOrderColumns(handleView)}
+        columns={getTripColumns(handleView)}
         dataSource={filteredData}
-        rowKey="orderId"
+        rowKey="tripId"
         bordered
       />
-
-      <Delivery/>
-
-      {/* <Trade/> */}
-
-      {/* <Trip/> */}
     </div>
   );
 }
