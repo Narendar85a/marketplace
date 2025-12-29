@@ -1,8 +1,8 @@
 import { ColumnsType } from "antd/es/table";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
-import { OrderType, Attachment } from "@/types/types";
+import { DeliveryType, Attachment } from "@/types/types";
 
-export const getOrderColumns = (onView?: (orderId: string) => void): ColumnsType<OrderType> => [
+export const getDeliveryColumns = (onView?: (orderId: string) => void): ColumnsType<DeliveryType> => [
   {
     title: "Order ID",
     dataIndex: "orderId",
@@ -12,6 +12,11 @@ export const getOrderColumns = (onView?: (orderId: string) => void): ColumnsType
     title: "User ID",
     dataIndex: "userId",
     key: "userId",
+  },
+  {
+    title: "Restaurant Name",
+    dataIndex: "restaurantName",
+    key: "restaurantName",
   },
   {
     title: "Status",
@@ -25,14 +30,25 @@ export const getOrderColumns = (onView?: (orderId: string) => void): ColumnsType
     render: (amount) => `₹ ${amount}`,
   },
   {
+    title: "Delivery Fee",
+    dataIndex: "deliveryFee",
+    key: "deliveryFee",
+    render: (fee) => `₹ ${fee}`,
+  },
+  {
+    title: "Delivery Time (min)",
+    dataIndex: "deliveryTime",
+    key: "deliveryTime",
+  },
+  {
     title: "Items",
     dataIndex: "items",
     key: "items",
   },
   {
-    title: "Shipping Address",
-    dataIndex: "shippingAddress",
-    key: "shippingAddress",
+    title: "Delivery Address",
+    dataIndex: "deliveryAddress",
+    key: "deliveryAddress",
   },
   {
     title: "Created At",
@@ -51,20 +67,17 @@ export const getOrderColumns = (onView?: (orderId: string) => void): ColumnsType
     render: (attach: Attachment) => (
       <div className="flex flex-col items-center gap-3">
         <p className="font-semibold">{attach.name}</p>
-
         <img
           src={attach.img}
           alt={attach.name}
           className="w-10 h-10 rounded object-cover"
         />
-
         <p className="text-xs text-gray-500 dark:text-gray-400">
           {attach.description}
         </p>
       </div>
     ),
   },
-
   {
     title: "Action",
     key: "action",

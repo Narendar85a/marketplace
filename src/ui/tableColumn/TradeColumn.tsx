@@ -1,17 +1,27 @@
 import { ColumnsType } from "antd/es/table";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
-import { OrderType, Attachment } from "@/types/types";
+import { TradeType, Attachment } from "@/types/types";
 
-export const getOrderColumns = (onView?: (orderId: string) => void): ColumnsType<OrderType> => [
+export const getTradeColumns = (onView?: (tradeId: string) => void): ColumnsType<TradeType> => [
   {
-    title: "Order ID",
-    dataIndex: "orderId",
-    key: "orderId",
+    title: "Trade ID",
+    dataIndex: "tradeId",
+    key: "tradeId",
   },
   {
     title: "User ID",
     dataIndex: "userId",
     key: "userId",
+  },
+  {
+    title: "Stock Symbol",
+    dataIndex: "stockSymbol",
+    key: "stockSymbol",
+  },
+  {
+    title: "Trade Type",
+    dataIndex: "tradeType",
+    key: "tradeType",
   },
   {
     title: "Status",
@@ -25,19 +35,20 @@ export const getOrderColumns = (onView?: (orderId: string) => void): ColumnsType
     render: (amount) => `₹ ${amount}`,
   },
   {
-    title: "Items",
-    dataIndex: "items",
-    key: "items",
+    title: "Quantity",
+    dataIndex: "quantity",
+    key: "quantity",
   },
   {
-    title: "Shipping Address",
-    dataIndex: "shippingAddress",
-    key: "shippingAddress",
+    title: "Market Price",
+    dataIndex: "marketPrice",
+    key: "marketPrice",
+    render: (price) => `₹ ${price}`,
   },
   {
-    title: "Created At",
-    dataIndex: "createdAt",
-    key: "createdAt",
+    title: "Executed At",
+    dataIndex: "executedAt",
+    key: "executedAt",
   },
   {
     title: "Updated At",
@@ -51,20 +62,17 @@ export const getOrderColumns = (onView?: (orderId: string) => void): ColumnsType
     render: (attach: Attachment) => (
       <div className="flex flex-col items-center gap-3">
         <p className="font-semibold">{attach.name}</p>
-
         <img
           src={attach.img}
           alt={attach.name}
           className="w-10 h-10 rounded object-cover"
         />
-
         <p className="text-xs text-gray-500 dark:text-gray-400">
           {attach.description}
         </p>
       </div>
     ),
   },
-
   {
     title: "Action",
     key: "action",
@@ -72,15 +80,15 @@ export const getOrderColumns = (onView?: (orderId: string) => void): ColumnsType
       <div className="flex gap-4 text-lg">
         <EyeOutlined
           style={{ color: "#10b981", cursor: "pointer" }}
-          onClick={() => onView && onView(record.orderId)}
+          onClick={() => onView && onView(record.tradeId)}
         />
         <EditOutlined
           style={{ color: "#3b82f6", cursor: "pointer" }}
-          onClick={() => console.log("Edit", record.orderId)}
+          onClick={() => console.log("Edit", record.tradeId)}
         />
         <DeleteOutlined
           style={{ color: "#ef4444", cursor: "pointer" }}
-          onClick={() => console.log("Delete", record.orderId)}
+          onClick={() => console.log("Delete", record.tradeId)}
         />
       </div>
     ),
